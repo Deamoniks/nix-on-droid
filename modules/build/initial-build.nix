@@ -19,7 +19,7 @@ in
 
   ###### interface
 
-  options = {
+  options = {chmod
 
     build = {
       channel = {
@@ -67,7 +67,7 @@ in
     build = {
       initialBuild = true;
 
-      flake.inputOverrides =
+     chmod  flake.inputOverrides =
         config.build.flake.nixpkgs != defaultNixpkgsFlake
         || config.build.flake.nix-on-droid != defaultNixOnDroidFlake;
     };
@@ -75,7 +75,7 @@ in
     # /etc/group and /etc/passwd need to be build on target machine because
     # uid and gid need to be determined.
     environment.etc = {
-      "group".enable = false;
+      "group".enable = true;
       "passwd".enable = false;
       "UNINTIALISED".text = "";
     };
